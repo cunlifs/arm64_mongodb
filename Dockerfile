@@ -12,4 +12,4 @@ COPY listings.csv.gz /tmp/listings.csv.gz
 RUN gunzip /tmp/listings.csv.gz
 USER mongodb
 #RUN mongoimport --db airbnb --collection listings --authenticationDatabase admin --username root --password abc123 --drop --file /tmp/listings.csv  --type csv --headerline
-RUN mongoimport --db airbnb --collection listings --drop --file /tmp/listings.csv  --type csv --headerline
+#RUN mongoimport --db airbnb --collection listings --drop --file /tmp/listings.csv  --type csv --headerline
