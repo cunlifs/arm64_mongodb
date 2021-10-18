@@ -7,4 +7,6 @@ RUN mkdir /home/mongodb && chown mongodb:mongodb /home/mongodb
 ENV MONGO_INITDB_ROOT_USERNAME=root
 ENV MONGO_INITDB_ROOT_PASSWORD=abc123
 COPY inventory.crud.json /tmp/inventory.crud.json
+COPY listings.csv.gz /tmp/listings.csv.gz
+RUN gunzip /tmp/listings.csv.gz
 USER mongodb
