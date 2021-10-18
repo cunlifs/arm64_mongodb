@@ -7,8 +7,10 @@ RUN mkdir /home/mongodb && chown mongodb:mongodb /home/mongodb
 ENV MONGO_INITDB_ROOT_USERNAME=root
 ENV MONGO_INITDB_ROOT_PASSWORD=abc123
 EXPOSE 27017
-COPY inventory.crud.json /tmp/inventory.crud.json
+#COPY inventory.crud.json /tmp/inventory.crud.json
 COPY listings.csv.gz /tmp/listings.csv.gz
+COPY seed_airbnb.sh /docker-entrypoint-initdb.d/seed_airbnb.sh
+RUN chmod 777 /docker-entrypoint-initdb.d/seed_airbnb.sh
 RUN gunzip /tmp/listings.csv.gz
 USER mongodb
 #RUN mongoimport --db airbnb --collection listings --authenticationDatabase admin --username root --password abc123 --drop --file /tmp/listings.csv  --type csv --headerline
