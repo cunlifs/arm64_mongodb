@@ -4,11 +4,11 @@ MAINTAINER Stu Cunliffe,UK s_cunliffe@uk.ibm.com
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 RUN mkdir /home/mongodb && chown mongodb:mongodb /home/mongodb
-#ENV MONGO_INITDB_ROOT_USERNAME=root
-#ENV MONGO_INITDB_ROOT_PASSWORD=abc123
-#ENV MONGO_DB_NAME=airbnb
-#ENV MONGO_COLLECTION_NAME=chicago_listings
-#ENV MONGO_DB_TYPE=csv
+ENV MONGO_INITDB_ROOT_USERNAME=root
+ENV MONGO_INITDB_ROOT_PASSWORD=abc123
+ENV MONGO_DB_NAME=airbnb
+ENV MONGO_COLLECTION_NAME=chicago_listings
+ENV MONGO_DB_TYPE=csv
 EXPOSE 27017
 COPY chicago_listings.csv.gz /tmp/chicago_listings.csv.gz
 RUN gunzip /tmp/chicago_listings.csv.gz
